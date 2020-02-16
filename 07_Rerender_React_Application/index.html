@@ -1,0 +1,31 @@
+<div id="root"></div>
+<script crossorigin src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+
+<script crossorigin src="https://unpkg.com/prop-types@15.7.2/prop-types.js"></script>
+
+<script type="text/babel">
+    const root = document.getElementById('root');
+    function timeCheck() {
+        const time = new Date().toLocaleTimeString();
+
+        const element = `
+            <div>
+                <input type="text" value="its ${time}" />
+                <input type="text" value="its ${time}" />
+            </div>
+        `;
+        root.innerHTML = element;
+
+        // const element = (
+        //     <div>
+        //     <input type="text" value={"its "+ time} />
+        //     <input type="text" value={"its "+ time} />
+        //     </div>
+        //     );
+        // ReactDOM.render(element,root);
+    }
+    setInterval(timeCheck,1000);
+
+</script>
