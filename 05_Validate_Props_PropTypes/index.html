@@ -2,6 +2,9 @@
 <script crossorigin src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
 <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+
+<script crossorigin src="https://unpkg.com/prop-types@15.7.2/prop-types.js"></script>
+
 <script type="text/babel">
     const root = document.getElementById('root');
 
@@ -11,22 +14,22 @@
         </p> )
     };
 
-    const PropTypes = {
-        string(props, propName, componentName){
-            if(typeof props[propName] !== 'string'){
-                return new Error(`${propName} requires a value of type string, instead you passed ${typeof  props[propName]}`)
-            }
-        }
-    };
+    // const PropTypes = {
+    //     string(props, propName, componentName){
+    //         if(typeof props[propName] !== 'string'){
+    //             return new Error(`${propName} requires a value of type string, instead you passed ${typeof  props[propName]}`)
+    //         }
+    //     }
+    // };
 
 
     SayHelloComp.propTypes = {
         firstName: PropTypes.string,
-        lastName: PropTypes.string
+        lastName: PropTypes.string.isRequired
     };
 
     ReactDOM.render(
-        <SayHelloComp firstName={false}></SayHelloComp>,
+        <SayHelloComp firstName={'Ciccio'} ></SayHelloComp>,
         root
     )
 
