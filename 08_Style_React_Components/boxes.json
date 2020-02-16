@@ -1,0 +1,22 @@
+[
+  {
+    "styles": "{\"backgroundColor\": \"blue\"}",
+    "p": "pippo cicici ggg oioio Etiam non sem rhoncus, tincidunt lorem vitae, dignissim ex.",
+    "size": "small"
+  },
+  {
+    "styles": "{\"backgroundColor\": \"red\"}",
+    "p": "Integer malesuada gravida molestie. Pellentesque non tincidunt diam. Fusce eget ex ac velit vehicula placerat. Duis rhoncus metus dignissim, bibendum nunc id, pellentesque ex. Nullam lacinia dolor nisi, ut viverra nisi dignissim id",
+    "size": "medium"
+  },
+  {
+    "styles": "{\"backgroundColor\": \"green\"}",
+    "p": "Aenean vehicula, lectus vitae sagittis mattis, lacus nibh pulvinar nisi, eu placerat ex sapien non justo. Morbi varius non felis a tristique. Quisque vitae purus ac nunc consectetur tristique.",
+    "size": "large"
+  },
+  {
+    "styles": "{\"backgroundColor\": \"yellow\",\"color\":\"red\"}",
+    "p": "tristique.",
+    "size": "medium"
+  }
+]

@@ -1,0 +1,74 @@
+<div id="root"></div>
+<script crossorigin src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+
+<script crossorigin src="https://unpkg.com/prop-types@15.7.2/prop-types.js"></script>
+
+<style>
+    .box {
+        border: 2px solid;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+    .box h1 {
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+
+    .box__large {
+        padding: 100px;
+    }
+    .box__small {
+        padding: 25px;
+    }
+    .box__medium {
+        padding: 50px;
+    }
+</style>
+
+<script type="text/babel">
+    const root = document.getElementById('root');
+
+
+    class Box extends React.Component  {
+        static propTypes = {
+            styles: PropTypes.string
+        };
+        render() {
+            let {styles,p,...rest} = this.props;
+            styles = JSON.parse(styles);
+            console.log('styles',styles);
+
+            const sizeClass = rest.size?"box__"+rest.size:'';
+            return ( <div {...rest} className={'box '+sizeClass+' '+rest.className} style={{color: 'white' , ...styles}} >
+                <h1>{rest.size} box</h1>
+                <p>{p}</p>
+            </div> )
+        }
+    }
+
+    function Container(props) {
+        // console.log(typeof props.boxes);
+        // console.log(props.boxes);
+        if(typeof props.boxes !== 'object'){
+            return <div>No content!</div>
+        }
+        const out = props.boxes.map((box) => {
+          return <Box {...box}></Box>
+        });
+        return <div>{out}</div>
+    }
+
+    function getData(){
+        fetch('boxes.json').then(res => { return res.json();}).then(data => {
+            console.log(data);
+            ReactDOM.render(<Container boxes={data}></Container>,root);
+        });
+    }
+
+    setInterval(getData,1000)
+
+
+
+</script>
