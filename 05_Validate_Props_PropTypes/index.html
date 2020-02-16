@@ -1,0 +1,33 @@
+<div id="root"></div>
+<script crossorigin src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+<script type="text/babel">
+    const root = document.getElementById('root');
+
+    const SayHelloComp = (props) => {
+        return (<p className="container">
+            Hello, {props.firstName} {props.lastName}
+        </p> )
+    };
+
+    const PropTypes = {
+        string(props, propName, componentName){
+            if(typeof props[propName] !== 'string'){
+                return new Error(`${propName} requires a value of type string, instead you passed ${typeof  props[propName]}`)
+            }
+        }
+    };
+
+
+    SayHelloComp.propTypes = {
+        firstName: PropTypes.string,
+        lastName: PropTypes.string
+    };
+
+    ReactDOM.render(
+        <SayHelloComp firstName={false}></SayHelloComp>,
+        root
+    )
+
+</script>
