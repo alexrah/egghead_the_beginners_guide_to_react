@@ -10,21 +10,21 @@
     function timeCheck() {
         const time = new Date().toLocaleTimeString();
 
-        const element = `
-            <div>
-                <input type="text" value="its ${time}" />
-                <input type="text" value="its ${time}" />
-            </div>
-        `;
-        root.innerHTML = element;
-
-        // const element = (
+        // const element = `
         //     <div>
-        //     <input type="text" value={"its "+ time} />
-        //     <input type="text" value={"its "+ time} />
+        //         <input type="text" value="its ${time}" />
+        //         <input type="text" value="its ${time}" />
         //     </div>
-        //     );
-        // ReactDOM.render(element,root);
+        //`;
+        //root.innerHTML = element;
+
+        const element = (
+            <div>
+            <input type="text" value={"its "+ time} />
+            <input type="text" value={"its "+ time} />
+            </div>
+            );
+        ReactDOM.render(element,root);
     }
     setInterval(timeCheck,1000);
 
